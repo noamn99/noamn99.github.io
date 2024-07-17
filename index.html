@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>Password Protected</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,36 +11,56 @@
             color: #333;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
         }
         .container {
             text-align: center;
-            padding: 50px;
         }
-        h1 {
-            color: #ff4500;
+        input[type="password"] {
+            padding: 10px;
+            font-size: 1em;
         }
-        p {
-            font-size: 1.2em;
-        }
-        .button {
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
             background-color: #ff4500;
             color: white;
-            padding: 10px 20px;
-            text-decoration: none;
+            border: none;
             border-radius: 5px;
-            margin-top: 20px;
-            display: inline-block;
+            cursor: pointer;
         }
-        .button:hover {
+        button:hover {
             background-color: #ff6347;
+        }
+        p {
+            color: red;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to My Personal Website, The Place to Improve Yourself</h1>
-        <p>I'm King, and this is my space on the internet where you can find gold info from all my social media profiles and learn more.</p>
-        <a href="links.html" class="button">My Links and Saved Posts</a>
+        <h1>Enter Password to Access</h1>
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="error"></p>
     </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const error = document.getElementById('error');
+
+            // Replace 'yourpassword' with your actual password
+            if (password === '123123123') {
+                window.location.href = 'index.html'; // Redirect to the main page
+            } else {
+                error.textContent = 'Incorrect password. Please try again.';
+            }
+        }
+    </script>
 </body>
 </html>
